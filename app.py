@@ -153,7 +153,7 @@ def load_user(user_id):
 # Routes
 @app.route("/")
 def home():
-    return redirect("/login")
+    return render_template("landing.html")
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -952,6 +952,10 @@ def download_excel(class_name):
         as_attachment=True,
         download_name=excel_filename
     )
+
+@app.route("/landing")
+def landing():
+    return render_template("landing.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
